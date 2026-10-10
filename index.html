@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Мельникова Любовь — косметолог</title>
+<style>
+:root{
+  --bg:#fbf7f4; --bg2:#f3ebe5; --ink:#2e2724; --muted:#7a6a62;
+  --accent:#b08968; --accent-dark:#8c6a4f; --line:#e6dcd4; --white:#fff;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  font-family:'Segoe UI',system-ui,-apple-system,Roboto,Arial,sans-serif;
+  color:var(--ink);background:var(--bg);line-height:1.6;-webkit-font-smoothing:antialiased;
+}
+img{max-width:100%;display:block}
+section{padding:clamp(48px,8vw,96px) 0}
+.wrap{width:min(1120px,92%);margin:0 auto}
+h2{
+  font-size:clamp(24px,4.2vw,38px);font-weight:600;letter-spacing:.3px;
+  text-align:center;margin-bottom:12px;
+}
+.sub{text-align:center;color:var(--muted);max-width:640px;margin:0 auto clamp(28px,5vw,48px)}
+.alt{background:var(--bg2)}
+
+/* nav */
+header{
+  position:sticky;top:0;z-index:50;background:rgba(251,247,244,.92);
+  backdrop-filter:blur(8px);border-bottom:1px solid var(--line);
+}
+nav{display:flex;gap:22px;overflow-x:auto;padding:14px 0;scrollbar-width:none}
+nav::-webkit-scrollbar{display:none}
+nav a{
+  color:var(--muted);text-decoration:none;font-size:14px;white-space:nowrap;
+  letter-spacing:.4px;transition:color .2s;
+}
+nav a:hover{color:var(--accent-dark)}
+
+/* hero */
+.hero{display:grid;grid-template-columns:1.05fr 1fr;gap:clamp(24px,5vw,64px);align-items:center;padding-top:clamp(32px,6vw,72px)}
+.hero-photo{position:relative}
+.hero-photo img{border-radius:220px 220px 24px 24px;box-shadow:0 24px 60px rgba(90,65,48,.18)}
+.hero-photo::after{
+  content:"";position:absolute;inset:auto -18px -18px auto;width:62%;height:48%;
+  border:1px solid var(--accent);border-radius:0 0 24px 24px;z-index:-1;
+}
+.eyebrow{
+  display:inline-block;font-size:12px;letter-spacing:2.4px;text-transform:uppercase;
+  color:var(--accent-dark);border:1px solid var(--line);border-radius:999px;padding:6px 16px;margin-bottom:18px;
+}
+.hero h1{font-size:clamp(32px,6vw,56px);font-weight:600;line-height:1.15;letter-spacing:.5px}
+.hero h1 span{display:block;color:var(--accent-dark)}
+.hero p{color:var(--muted);margin:18px 0 28px;font-size:clamp(15px,2vw,18px)}
+.btn{
+  display:inline-block;background:var(--accent);color:#fff;text-decoration:none;
+  padding:14px 32px;border-radius:999px;font-size:15px;letter-spacing:.6px;
+  transition:background .2s,transform .2s;
+}
+.btn:hover{background:var(--accent-dark);transform:translateY(-2px)}
+.btn.ghost{background:transparent;color:var(--accent-dark);border:1px solid var(--accent)}
+.btn.ghost:hover{background:var(--accent);color:#fff}
+
+/* infographic */
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-bottom:40px}
+.stat{background:var(--white);border:1px solid var(--line);border-radius:18px;padding:26px 18px;text-align:center}
+.stat b{display:block;font-size:clamp(28px,5vw,42px);color:var(--accent-dark);font-weight:600;line-height:1}
+.stat span{font-size:13px;color:var(--muted);letter-spacing:.3px}
+
+.principle{
+  background:var(--white);border-left:3px solid var(--accent);border-radius:0 16px 16px 0;
+  padding:22px 26px;margin-bottom:40px;font-size:clamp(15px,2vw,18px);
+}
+.principle b{color:var(--accent-dark);font-weight:600}
+
+.h3{font-size:13px;letter-spacing:2px;text-transform:uppercase;color:var(--accent-dark);text-align:center;margin-bottom:20px}
+.dirs{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-bottom:44px}
+.dir{background:var(--white);border:1px solid var(--line);border-radius:16px;padding:24px 16px;text-align:center;transition:transform .2s,box-shadow .2s}
+.dir:hover{transform:translateY(-4px);box-shadow:0 14px 30px rgba(90,65,48,.1)}
+.dir i{display:block;font-style:normal;font-size:26px;margin-bottom:10px}
+.dir b{font-weight:500;font-size:15px}
+
+.chips{display:flex;flex-wrap:wrap;gap:10px;justify-content:center}
+.chip{
+  background:var(--white);border:1px solid var(--line);border-radius:999px;
+  padding:9px 18px;font-size:14px;color:var(--ink);
+}
+.chip::before{content:"✦ ";color:var(--accent)}
+.note{text-align:center;color:var(--muted);max-width:680px;margin:40px auto 0;font-style:italic}
+
+/* preparations */
+.grid4{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+.card{background:var(--white);border:1px solid var(--line);border-radius:18px;overflow:hidden;display:flex;flex-direction:column}
+.card .ph{aspect-ratio:1/1;background:var(--bg2);display:flex;align-items:center;justify-content:center;overflow:hidden}
+.card .ph img{width:100%;height:100%;object-fit:cover;transition:transform .4s}
+.card:hover .ph img{transform:scale(1.05)}
+.card .txt{padding:16px 18px 20px}
+.card .txt b{display:block;font-weight:600;font-size:16px}
+.card .txt span{font-size:13px;color:var(--muted)}
+.badges{display:flex;flex-wrap:wrap;gap:12px;justify-content:center;margin-top:36px}
+.badge{display:flex;align-items:center;gap:8px;font-size:14px;color:var(--muted);background:var(--white);border:1px solid var(--line);border-radius:999px;padding:10px 20px}
+
+/* price */
+.price{max-width:760px;margin:0 auto}
+.row{
+  display:flex;align-items:baseline;gap:12px;padding:18px 4px;border-bottom:1px dashed var(--line);
+}
+.row span:first-child{font-size:clamp(15px,2.2vw,18px)}
+.dots{flex:1;border-bottom:1px dotted var(--line);transform:translateY(-4px)}
+.row b{font-size:clamp(16px,2.4vw,20px);color:var(--accent-dark);white-space:nowrap;font-weight:600}
+.price-note{text-align:center;color:var(--muted);font-size:14px;margin-top:24px}
+
+/* schedule */
+.dates{
+  background:var(--white);border:1px solid var(--line);border-radius:22px;
+  padding:clamp(28px,5vw,48px);text-align:center;max-width:720px;margin:0 auto;
+}
+.dates .big{font-size:clamp(26px,5vw,44px);font-weight:600;color:var(--accent-dark);letter-spacing:1px}
+.towns{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-top:22px}
+.town{border:1px solid var(--accent);color:var(--accent-dark);border-radius:999px;padding:10px 26px;font-size:15px;letter-spacing:.5px}
+
+/* contacts */
+.contact{text-align:center}
+.phone{
+  display:inline-block;font-size:clamp(24px,5vw,40px);font-weight:600;color:var(--ink);
+  text-decoration:none;letter-spacing:1px;margin:8px 0 18px;
+}
+.phone:hover{color:var(--accent-dark)}
+.warn{
+  background:var(--white);border:1px solid var(--line);border-radius:18px;
+  padding:22px 24px;max-width:620px;margin:0 auto 32px;color:var(--muted);font-size:15px;
+}
+.warn b{color:var(--ink)}
+.msgs{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+.msg{
+  display:inline-flex;align-items:center;gap:10px;text-decoration:none;color:#fff;
+  padding:14px 28px;border-radius:999px;font-size:15px;transition:transform .2s,opacity .2s;
+}
+.msg:hover{transform:translateY(-2px);opacity:.92}
+.tg{background:#29a9eb}.wa{background:#25d366}.mx{background:#6c3fd1}
+footer{border-top:1px solid var(--line);padding:28px 0;text-align:center;color:var(--muted);font-size:13px}
+
+@media(max-width:900px){
+  .hero{grid-template-columns:1fr;text-align:center}
+  .hero-photo{order:-1;max-width:420px;margin:0 auto}
+  .hero-photo img{border-radius:180px 180px 20px 20px}
+  .dirs{grid-template-columns:repeat(2,1fr)}
+  .grid4{grid-template-columns:repeat(2,1fr)}
+}
+@media(max-width:560px){
+  .stats{grid-template-columns:1fr;gap:12px}
+  .stat{display:flex;align-items:center;gap:14px;text-align:left;padding:18px}
+  .stat b{font-size:32px}
+  .grid4{grid-template-columns:1fr}
+  .row{flex-wrap:wrap}
+  .dots{display:none}
+  .btn{display:block}
+}
+</style>
+</head>
+<body>
+
+<header>
+  <nav class="wrap">
+    <a href="#hero">Главная</a>
+    <a href="#about">Обо мне</a>
+    <a href="#preparations">Препараты</a>
+    <a href="#price">Цены</a>
+    <a href="#schedule">График выезда</a>
+    <a href="#contact">Запись</a>
+  </nav>
+</header>
+
+<!-- 1. ГЛАВНАЯ -->
+<section id="hero">
+  <div class="wrap hero">
+    <div>
+      <span class="eyebrow">Эстетическая косметология</span>
+      <h1>Мельникова Любовь<span>косметолог с 8-летним стажем</span></h1>
+      <p>Здоровая, ухоженная кожа и естественный результат, который подчёркивает вашу индивидуальность.</p>
+      <a class="btn" href="#contact">Записаться на приём</a>
+    </div>
+    <div class="hero-photo">
+      <img src="images/photo1.jpg" alt="Мельникова Любовь, косметолог">
+    </div>
+  </div>
+</section>
+
+<!-- 2. ОБО МНЕ -->
+<section id="about" class="alt">
+  <div class="wrap">
+    <h2>Опыт и подход</h2>
+    <p class="sub">Косметолог с медицинским образованием</p>
+
+    <div class="stats">
+      <div class="stat"><b>26+</b><span>лет медицинского стажа</span></div>
+      <div class="stat"><b>8+</b><span>лет в косметологии</span></div>
+      <div class="stat"><b>100%</b><span>индивидуальный протокол</span></div>
+    </div>
+
+    <div class="principle">
+      Принцип работы: <b>не маскировать проблему</b>, а помогать коже восстановить качество и улучшить состояние.
+    </div>
+
+    <p class="h3">Основные направления</p>
+    <div class="dirs">
+      <div class="dir"><i>💧</i><b>Биоревитализация</b></div>
+      <div class="dir"><i>💉</i><b>Мезотерапия</b></div>
+      <div class="dir"><i>🩸</i><b>Плазмотерапия</b></div>
+      <div class="dir"><i>✨</i><b>Контурная пластика</b></div>
+    </div>
+
+    <p class="h3">С какими задачами работаю</p>
+    <div class="chips">
+      <span class="chip">Пигментация и неровный тон</span>
+      <span class="chip">Обезвоженность кожи</span>
+      <span class="chip">Упругость и плотность</span>
+      <span class="chip">Возрастные изменения и морщины</span>
+      <span class="chip">Восстановление и регенерация</span>
+      <span class="chip">Кожа головы и рост волос</span>
+      <span class="chip">Форма и объёмы лица</span>
+      <span class="chip">Асимметрия и пропорции</span>
+      <span class="chip">Форма и объём губ</span>
+      <span class="chip">Морщины вокруг губ</span>
+    </div>
+
+    <p class="note">Результат должен выглядеть естественно и гармонично — соответствовать именно вам, а не менять лицо до неузнаваемости.</p>
+  </div>
+</section>
+
+<!-- 3. ПРЕПАРАТЫ -->
+<section id="preparations">
+  <div class="wrap">
+    <h2>Препараты</h2>
+    <p class="sub">Работаю только с проверенными и сертифицированными препаратами</p>
+
+    <div class="grid4">
+      <div class="card">
+        <div class="ph"><img src="images/photo2.png" alt="PDRN Therapy"></div>
+        <div class="txt"><b>PDRN Therapy</b><span>Регенерация и восстановление кожи</span></div>
+      </div>
+      <div class="card">
+        <div class="ph"><img src="images/photo3.png" alt="Biohyalux Fine Lines"></div>
+        <div class="txt"><b>Biohyalux Fine Lines</b><span>Коррекция мелких морщин, 1 мл</span></div>
+      </div>
+      <div class="card">
+        <div class="ph"><img src="images/photo4.png" alt="Biohyalux Deep Dermis"></div>
+        <div class="txt"><b>Biohyalux Deep Dermis</b><span>Объёмная коррекция, 1 мл</span></div>
+      </div>
+      <div class="card">
+        <div class="ph"><img src="images/photo5.png" alt="Aqualuna Natural 2"></div>
+        <div class="txt"><b>Aqualuna Natural 2</b><span>Филлер на гиалуроновой кислоте, 1 мл</span></div>
+      </div>
+    </div>
+
+    <div class="badges">
+      <span class="badge">✔ Сертифицированные препараты</span>
+      <span class="badge">✔ Оригинальная упаковка</span>
+      <span class="badge">✔ Контроль сроков годности</span>
+    </div>
+  </div>
+</section>
+
+<!-- 4. ПРАЙС -->
+<section id="price" class="alt">
+  <div class="wrap">
+    <h2>Прайс-лист</h2>
+    <p class="sub">Стоимость процедур</p>
+    <div class="price">
+      <div class="row"><span>Биоревитализация лица</span><i class="dots"></i><b>18 000 ₽</b></div>
+      <div class="row"><span>Биоревитализация шеи</span><i class="dots"></i><b>18 000 ₽</b></div>
+      <div class="row"><span>Биоревитализация области глаз</span><i class="dots"></i><b>10 000 ₽</b></div>
+      <div class="row"><span>Контурная пластика лица</span><i class="dots"></i><b>19 000 ₽</b></div>
+      <div class="row"><span>Контурная пластика губ</span><i class="dots"></i><b>19 000 ₽</b></div>
+      <p class="price-note">Точный план процедур подбирается индивидуально на консультации.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 5. ГРАФИК ВЫЕЗДА -->
+<section id="schedule">
+  <div class="wrap">
+    <h2>График выезда</h2>
+    <p class="sub">Приём в посёлках по маршруту следования</p>
+    <div class="dates">
+      <span class="eyebrow">Даты приёма</span>
+      <div class="big">9.11.2026 — 15.11.2026</div>
+      <div class="towns">
+        <span class="town">Чара</span>
+        <span class="town">Куанда</span>
+      </div>
+      <p class="price-note">Количество мест ограничено — запись закрывается заранее.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 6. КОНТАКТЫ -->
+<section id="contact" class="alt">
+  <div class="wrap contact">
+    <h2>Запись на приём</h2>
+    <a class="phone" href="tel:+79145108354">+7-914-510-83-54</a>
+    <div class="warn">
+      <b>Требуется предварительная запись по телефону.</b><br>
+      Препараты везутся индивидуально под каждого клиента, поэтому записаться нужно заранее.
+    </div>
+    <div class="msgs">
+      <a class="msg tg" href="https://t.me/+79145108354" target="_blank" rel="noopener">Telegram</a>
+      <a class="msg wa" href="https://wa.me/79145108354" target="_blank" rel="noopener">WhatsApp</a>
+      <a class="msg mx" href="https://max.ru/+79145108354" target="_blank" rel="noopener">Max</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">© 2026 Мельникова Любовь — косметолог. Имеются противопоказания, необходима консультация специалиста.</div>
+</footer>
+
+</body>
+</html>
